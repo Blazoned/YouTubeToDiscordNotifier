@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <UserSecretsId>eaa847dc-38ef-4741-a173-d94fb820cfea</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <PreserveCompilationContext />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.9" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Kubernetes.Tools.Targets" Version="1.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DiscordYouTubeNotifier.DataSchemes\DiscordYouTubeNotifier.DataSchemes.csproj" />
+    <ProjectReference Include="..\DiscordYouTubeNotifier.DataStore\DiscordYouTubeNotifier.DataStore.csproj" />
+    <ProjectReference Include="..\DiscordYouTubeNotifier.Services\DiscordYouTubeNotifier.Services.csproj" />
+    <ProjectReference Include="..\DiscordYouTubeNotifier.YouTubeNotifier\DiscordYouTubeNotifier.YouTubeNotifier.csproj" />
+    <ProjectReference Include="..\DiscordYouTubeNotifier.YouTubeSubscriber\DiscordYouTubeNotifier.YouTubeSubscriber.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\Home\" />
+  </ItemGroup>
+
+</Project>

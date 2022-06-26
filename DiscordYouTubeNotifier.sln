@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31005.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiscordYouTubeNotifier.WebApp", "DiscordYouTubeNotifier.WebApp\DiscordYouTubeNotifier.WebApp.csproj", "{FA32C8A0-D3F6-47D5-9A40-F8F281B43866}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiscordYouTubeNotifier.DataSchemes", "DiscordYouTubeNotifier.DataSchemes\DiscordYouTubeNotifier.DataSchemes.csproj", "{15AA1E13-58F4-4E84-B88E-D4E35CF778EE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiscordYouTubeNotifier.DataStore", "DiscordYouTubeNotifier.DataStore\DiscordYouTubeNotifier.DataStore.csproj", "{A0391621-2CE6-4501-BDBD-D8A1F8C351A8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiscordYouTubeNotifier.Services", "DiscordYouTubeNotifier.Services\DiscordYouTubeNotifier.Services.csproj", "{EB8ED86E-32A6-4202-ADBE-BB674B8AB21F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiscordYouTubeNotifier.YouTubeSubscriber", "DiscordYouTubeNotifier.YouTubeSubscriber\DiscordYouTubeNotifier.YouTubeSubscriber.csproj", "{D76B63A6-8880-4201-9AC4-55C2B1A93F55}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiscordYouTubeNotifier.YouTubeNotifier", "DiscordYouTubeNotifier.YouTubeNotifier\DiscordYouTubeNotifier.YouTubeNotifier.csproj", "{75F6AFB1-268A-4F7A-ACA8-709F15098A2B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FA32C8A0-D3F6-47D5-9A40-F8F281B43866}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA32C8A0-D3F6-47D5-9A40-F8F281B43866}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA32C8A0-D3F6-47D5-9A40-F8F281B43866}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA32C8A0-D3F6-47D5-9A40-F8F281B43866}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15AA1E13-58F4-4E84-B88E-D4E35CF778EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15AA1E13-58F4-4E84-B88E-D4E35CF778EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15AA1E13-58F4-4E84-B88E-D4E35CF778EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15AA1E13-58F4-4E84-B88E-D4E35CF778EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0391621-2CE6-4501-BDBD-D8A1F8C351A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0391621-2CE6-4501-BDBD-D8A1F8C351A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0391621-2CE6-4501-BDBD-D8A1F8C351A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0391621-2CE6-4501-BDBD-D8A1F8C351A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB8ED86E-32A6-4202-ADBE-BB674B8AB21F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB8ED86E-32A6-4202-ADBE-BB674B8AB21F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB8ED86E-32A6-4202-ADBE-BB674B8AB21F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB8ED86E-32A6-4202-ADBE-BB674B8AB21F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D76B63A6-8880-4201-9AC4-55C2B1A93F55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D76B63A6-8880-4201-9AC4-55C2B1A93F55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D76B63A6-8880-4201-9AC4-55C2B1A93F55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D76B63A6-8880-4201-9AC4-55C2B1A93F55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75F6AFB1-268A-4F7A-ACA8-709F15098A2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75F6AFB1-268A-4F7A-ACA8-709F15098A2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75F6AFB1-268A-4F7A-ACA8-709F15098A2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75F6AFB1-268A-4F7A-ACA8-709F15098A2B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EC615455-0D4B-4E34-AFBB-77E21739A6E3}
+	EndGlobalSection
+EndGlobal
