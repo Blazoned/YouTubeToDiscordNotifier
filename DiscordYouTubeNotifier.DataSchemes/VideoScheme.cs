@@ -24,5 +24,14 @@ namespace DiscordYouTubeNotifier.DataSchemes
         /// Date the video was published on.
         /// </summary>
         public DateTime Date { get; protected set; }
+
+        public VideoScheme(string videoId, TChannel channel, string title, string author, DateTime date)
+        {
+            this.VideoId = videoId;
+            this.Channel = channel;
+            this.Title = title;
+            this.Author = author;
+            this.Date = date;
+        }
     }
 }

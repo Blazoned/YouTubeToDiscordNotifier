@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace DiscordYouTubeNotifier.Services.DataStoreService
 {
-    public interface ISubscriberDataStore
+    public interface ISubscriberDataStore: IDisposable
     {
         #region Subscriber
         // Create

@@ -17,6 +17,11 @@ namespace DiscordYouTubeNotifier.DataStore
             throw new NotImplementedException();
         }
 
+        public void Dispose()
+        {
+            Console.WriteLine("Channel Datastore not disposed.");
+        }
+
         public ChannelScheme GetChannel(string topic)
         {
             throw new NotImplementedException();
@@ -24,7 +29,7 @@ namespace DiscordYouTubeNotifier.DataStore
 
         public List<ChannelScheme> GetChannels()
         {
-            throw new NotImplementedException();
+            return new List<ChannelScheme>() { new ChannelScheme("17735p34k", "PotatoSalad") };
         }
 
         public List<SubscriptionScheme<SubscriberScheme, ChannelScheme>> GetSubscriptions(ChannelScheme channel)

@@ -10,5 +10,11 @@
         /// Custom name for webhook, for the user to more easily identify which webhook they are editting.
         /// </summary>
         public string Name { get; protected set; }
+
+        public SubscriberScheme(string webhook, string name)
+        {
+            this.Webhook = webhook;
+            this.Name = name;
+        }
     }
 }

@@ -7,9 +7,12 @@ using System.Threading.Tasks;
 
 namespace DiscordYouTubeNotifier.YouTubeNotifier
 {
+    /// <summary>
+    /// Service to manage sending out notifications for YouTube channels to all webhooks having an active subscription to those specified YouTube channels.
+    /// </summary>
     public class WebhookNotificationService: INotificationService
     {
-        private IDataStoreFactory _dataStore;
+        private readonly IDataStoreFactory _dataStore;
 
         public WebhookNotificationService(IDataStoreFactory dataStore)
         {

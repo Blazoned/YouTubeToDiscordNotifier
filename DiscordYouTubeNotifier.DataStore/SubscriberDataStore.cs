@@ -22,6 +22,11 @@ namespace DiscordYouTubeNotifier.DataStore
             throw new NotImplementedException();
         }
 
+        public void Dispose()
+        {
+            Console.WriteLine("Subscriber Datastore not disposed.");
+        }
+
         public List<SubscriptionScheme<SubscriberScheme, ChannelScheme>> GetSubscriptions(Guid session)
         {
             throw new NotImplementedException();

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace DiscordYouTubeNotifier.Services.DataStoreService
 {
-    public interface IChannelDataStore
+    public interface IChannelDataStore: IDisposable
     {
         #region Channel
         // Create
@@ -23,7 +23,7 @@ namespace DiscordYouTubeNotifier.Services.DataStoreService
         /// <returns>The channel info.</returns>
         ChannelScheme GetChannel(string topic);
         /// <summary>
-        /// Gets the channels that require an active listener to be active.
+        /// Gets the channels that require an active listener.
         /// </summary>
         /// <returns>A list of all required channel subscriptions.</returns>
         List<ChannelScheme> GetChannels();

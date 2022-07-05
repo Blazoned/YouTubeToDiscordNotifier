@@ -10,5 +10,11 @@
         /// A randomise secret to encode and decode traffic to pubsubhubbub
         /// </summary>
         public string Secret { get; protected set; }
+
+        public ChannelScheme(string topic, string secret)
+        {
+            this.Topic = topic;
+            this.Secret = secret;
+        }
     }
 }

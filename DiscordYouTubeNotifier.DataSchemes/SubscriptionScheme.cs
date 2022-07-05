@@ -20,5 +20,13 @@
         /// The custom message body.
         /// </summary>
         public string Message { get; protected set; }
+
+        public SubscriptionScheme(TSubscriber subscriber, TChannel channel, string name, string message)
+        {
+            this.Subscriber = subscriber;
+            this.Channel = channel;
+            this.Name = name;
+            this.Message = message;
+        }
     }
 }
