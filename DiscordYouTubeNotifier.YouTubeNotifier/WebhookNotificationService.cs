@@ -1,9 +1,11 @@
 ﻿using DiscordYouTubeNotifier.DataSchemes;
 using DiscordYouTubeNotifier.Services;
-using Microsoft.Extensions.Hosting;
 using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Net;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace DiscordYouTubeNotifier.YouTubeNotifier
 {
@@ -19,9 +21,88 @@ namespace DiscordYouTubeNotifier.YouTubeNotifier
             this._dataStore = dataStore;
         }
 
-        public void ForwardTopicToWebhooks(string topic, VideoScheme<ChannelScheme> video)
+        public void ForwardTopicToWebhooks(VideoScheme<ChannelScheme> video)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (var dataStore = _dataStore.GetChannelDataStore())
+                {
+                    // Only execute if video hasn't been registered yet
+                    if (dataStore.GetVideo(video.VideoId) is null)
+                        return;
+
+                    // Get channel and register video to channel
+                    ChannelScheme channel = dataStore.GetChannel(video.Topic);
+                    dataStore.AddVideo(channel, video.VideoId, video.Title, video.Author, video.Date);
+
+                    // Get webhooks registered/subscribed to channel and process and send messages to each of them
+                    foreach (var subscription in dataStore.GetSubscriptions(channel))
+                    {
+                        ForwardTopicToWebhook(subscription, video);
+                    }
+                }
+            }
+            catch (AbandonedMutexException e)
+            {
+                // Channel Doesn't Exist
+                Console.WriteLine(e.Message);
+            }
+            catch (Exception e)
+            {
+                // Database not working
+                Console.WriteLine(e.Message);
+            }
+        }
+
+        public void TestWebhookSubscription(SubscriptionScheme<SubscriberScheme, ChannelScheme> subscription)
+        {
+            using (var dataStore = _dataStore.GetChannelDataStore())
+            {
+                ForwardTopicToWebhook(subscription, dataStore.GetVideos(subscription.Channel).FirstOrDefault());
+            }
+        }
+
+        private void ForwardTopicToWebhook(SubscriptionScheme<SubscriberScheme, ChannelScheme> subscription, VideoScheme<ChannelScheme> video)
+        {
+            try
+            {
+                // Parse saved message
+                MessageProcessor messageProcessor = new MessageProcessor(subscription.Message, new Dictionary<string, string>() { { "Title", "Hello there.\\n\\n" },
+                                                                                                                                  { "Body", "Testing testing, I'm just suggesting you and I may just be the best thing." } });
+                // TODO: Add actually features to the processor/parser. Include scenario where video is null (as can be the case for testing a subscription with 0 uploaded videos yet).
+
+
+                // Send message to webhook
+                string webhook = subscription.Webhook;
+
+                HttpWebRequest request = WebRequest.CreateHttp(webhook);
+                request.ContentType = "application/json";
+                request.Method = "POST";
+
+                using (var stream = new StreamWriter(request.GetRequestStream()))
+                {
+                    stream.Write($"{{\"content\": \"{messageProcessor.Message}\"}}");
+                }
+
+                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+
+                using (var stream = new StreamReader(response.GetResponseStream()))
+                {
+                    stream.ReadToEnd();
+                }
+
+                Console.WriteLine(response.StatusCode);
+            }
+            catch (AbandonedMutexException e)
+            {
+                // Message not processable
+                Console.WriteLine(e.Message);
+            }
+            catch (Exception e)
+            {
+                // Webhook not addressable
+                Console.WriteLine(e.Message);
+            }
         }
     }
 }

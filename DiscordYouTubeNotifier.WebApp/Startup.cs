@@ -66,11 +66,6 @@ namespace DiscordYouTubeNotifier.WebApp
                         template: "{controller=Home}/{action=Index}"
                     );
             });
-
-            app.Run(context =>
-            {
-                return context.Response.WriteAsync("Hello World!");
-            });
         }
     }
 }

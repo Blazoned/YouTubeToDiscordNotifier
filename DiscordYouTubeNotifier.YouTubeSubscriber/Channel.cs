@@ -50,9 +50,12 @@ namespace DiscordYouTubeNotifier.YouTubeSubscriber
         // Starts this subscription request for the background service. Will be cancelled if subscription is cancelled, or if background services is being shutdown.
         private async Task StartSubscription(CancellationToken cancellationToken)
         {
-            while(!cancellationToken.IsCancellationRequested)
+            // TODO: Add randomised delay (so that not all requests are send out at the same time).
+
+            while (!cancellationToken.IsCancellationRequested)
             {
                 Console.WriteLine(Topic + "; " +  LeaseTime + "; " + Secret);
+                // TODO: Actually get a lease from the pubsubhubbub + add partially randomised task delay (so that not all requests are send out at the same time).
 
                 await Task.Delay(LeaseTime, cancellationToken);
             }

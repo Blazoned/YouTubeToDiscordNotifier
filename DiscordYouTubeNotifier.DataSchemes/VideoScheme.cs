@@ -25,6 +25,11 @@ namespace DiscordYouTubeNotifier.DataSchemes
         /// </summary>
         public DateTime Date { get; protected set; }
 
+        /// <summary>
+        /// The channel id of the channel to which the video belongs.
+        /// </summary>
+        public string Topic { get { return Channel.Topic; } }
+
         public VideoScheme(string videoId, TChannel channel, string title, string author, DateTime date)
         {
             this.VideoId = videoId;

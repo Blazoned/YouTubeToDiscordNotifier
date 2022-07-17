@@ -21,6 +21,15 @@
         /// </summary>
         public string Message { get; protected set; }
 
+        /// <summary>
+        /// Gets the webhook address.
+        /// </summary>
+        public string Webhook { get { return Subscriber.Webhook; } }
+        /// <summary>
+        /// Gets the channel id.
+        /// </summary>
+        public string ChannelId { get { return Channel.Topic; } }
+
         public SubscriptionScheme(TSubscriber subscriber, TChannel channel, string name, string message)
         {
             this.Subscriber = subscriber;
