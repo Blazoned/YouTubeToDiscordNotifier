@@ -17,6 +17,7 @@ public class ChannelDataStore : IChannelDataStore
     {
         // TODO: Implement
         Console.WriteLine("Channel Datastore not disposed.");
+        GC.SuppressFinalize(this);
     }
 
     public ChannelScheme GetChannel(string topic)

@@ -63,13 +63,11 @@ public class PubsubhubbubService : BackgroundService, ISubscriptionService
     {
         if (!_channels.ContainsKey(topic))
         {
-            Channel channel = new Channel(topic, _leaseTime, _cancellationToken);
+            Channel channel = new(topic, _leaseTime, _cancellationToken);
             _channels.Add(topic, channel);
 
-            using (var dataStore = _dataStore.GetChannelDataStore())
-            {
-                dataStore.CreateChannel(channel.Topic, channel.Secret);
-            }
+            using var dataStore = _dataStore.GetChannelDataStore();
+            dataStore.CreateChannel(channel.Topic, channel.Secret);
         }
     }
 
@@ -78,10 +76,8 @@ public class PubsubhubbubService : BackgroundService, ISubscriptionService
     {
         _channels.Clear();
 
-        using (var dataStore = _dataStore.GetChannelDataStore())
-        {
-            dataStore.GetChannels().ForEach(channel => _channels.Add(channel.Topic, new Channel(channel, _leaseTime, _cancellationToken)));
-        }
+        using var dataStore = _dataStore.GetChannelDataStore();
+        dataStore.GetChannels().ForEach(channel => _channels.Add(channel.Topic, new Channel(channel, _leaseTime, _cancellationToken)));
     }
 
     // Deactivate a channel subscription (use if not needed anymore).

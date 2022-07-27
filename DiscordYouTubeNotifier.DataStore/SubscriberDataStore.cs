@@ -20,6 +20,7 @@ public class SubscriberDataStore : ISubscriberDataStore
     public void Dispose()
     {
         Console.WriteLine("Subscriber Datastore not disposed.");
+        GC.SuppressFinalize(this);
     }
 
     public List<SubscriptionScheme<SubscriberScheme, ChannelScheme>> GetSubscriptions(ref Guid session)
