@@ -1,18 +1,14 @@
-﻿using DiscordYouTubeNotifier.Services;
-using DiscordYouTubeNotifier.Services.DataStoreService;
+﻿namespace DiscordYouTubeNotifier.DataStore;
 
-namespace DiscordYouTubeNotifier.DataStore
+public class DataStoreFactory : IDataStoreFactory
 {
-    public class DataStoreFactory : IDataStoreFactory
+    public IChannelDataStore GetChannelDataStore()
     {
-        public IChannelDataStore GetChannelDataStore()
-        {
-            return new ChannelDataStore();
-        }
+        return new ChannelDataStore();
+    }
 
-        public ISubscriberDataStore GetSubscriberDataStore()
-        {
-            return new SubscriberDataStore();
-        }
+    public ISubscriberDataStore GetSubscriberDataStore()
+    {
+        return new SubscriberDataStore();
     }
 }

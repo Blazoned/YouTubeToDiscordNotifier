@@ -1,20 +1,19 @@
-﻿namespace DiscordYouTubeNotifier.DataSchemes
-{
-    public class ChannelScheme
-    {
-        /// <summary>
-        /// The ID for a YouTube channel
-        /// </summary>
-        public string Topic { get; protected set; }
-        /// <summary>
-        /// A randomise secret to encode and decode traffic to pubsubhubbub
-        /// </summary>
-        public string Secret { get; protected set; }
+﻿namespace DiscordYouTubeNotifier.DataSchemes;
 
-        public ChannelScheme(string topic, string secret)
-        {
-            this.Topic = topic;
-            this.Secret = secret;
-        }
+public class ChannelScheme
+{
+    /// <summary>
+    /// The ID for a YouTube channel
+    /// </summary>
+    public string Topic { get; protected set; }
+    /// <summary>
+    /// A randomise secret to encode and decode traffic to pubsubhubbub
+    /// </summary>
+    public string Secret { get; protected set; }
+
+    public ChannelScheme(string topic, string secret)
+    {
+        this.Topic = topic;
+        this.Secret = secret;
     }
 }
